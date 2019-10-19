@@ -1,0 +1,6 @@
+C:\Users\Kiryl\source\repos\Users.WebApi\ConfigConstants\bin\Debug\ConfigConstants.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\ConfigConstants\bin\Debug\ConfigConstants.pdb
+C:\Users\Kiryl\source\repos\Users.WebApi\ConfigConstants\obj\Debug\Users.ConfigConstants.csprojAssemblyReference.cache
+C:\Users\Kiryl\source\repos\Users.WebApi\ConfigConstants\obj\Debug\Users.ConfigConstants.csproj.CoreCompileInputs.cache
+C:\Users\Kiryl\source\repos\Users.WebApi\ConfigConstants\obj\Debug\ConfigConstants.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\ConfigConstants\obj\Debug\ConfigConstants.pdb

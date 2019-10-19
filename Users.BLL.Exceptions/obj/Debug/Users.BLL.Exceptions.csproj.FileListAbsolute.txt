@@ -1,0 +1,6 @@
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Exceptions\bin\Debug\Users.BLL.Exceptions.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Exceptions\bin\Debug\Users.BLL.Exceptions.pdb
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Exceptions\obj\Debug\Users.BLL.Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Exceptions\obj\Debug\Users.BLL.Exceptions.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Exceptions\obj\Debug\Users.BLL.Exceptions.pdb
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Exceptions\obj\Debug\Users.BLL.Exceptions.csprojAssemblyReference.cache

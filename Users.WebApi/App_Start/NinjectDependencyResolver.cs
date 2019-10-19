@@ -1,12 +1,9 @@
-﻿using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-using Ninject;
+﻿using Ninject;
 using Ninject.Web.Common;
-using Ninject.Web.Common.WebHost;
 
 namespace Users.WebApi.App_Start
 {
-    using global::DependencyResolver;
+    using DependencyResolver;
 
     public static class NinjectDependencyResolver
     {

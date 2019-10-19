@@ -1,0 +1,6 @@
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.DAL.Base\bin\Debug\Users.DAL.Base.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.DAL.Base\bin\Debug\Users.DAL.Base.pdb
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.DAL.Base\obj\Debug\Users.DAL.Base.csprojAssemblyReference.cache
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.DAL.Base\obj\Debug\Users.DAL.Base.csproj.CoreCompileInputs.cache
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.DAL.Base\obj\Debug\Users.DAL.Base.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.DAL.Base\obj\Debug\Users.DAL.Base.pdb

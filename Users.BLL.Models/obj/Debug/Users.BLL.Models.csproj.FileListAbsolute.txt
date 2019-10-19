@@ -1,0 +1,15 @@
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\Users.BLL.Models.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\Users.BLL.Models.pdb
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\ConfigConstants.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\FluentValidation.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\FluentValidation.ValidatorAttribute.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\System.ValueTuple.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\ConfigConstants.pdb
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\FluentValidation.xml
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\bin\Debug\System.ValueTuple.xml
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\obj\Debug\Users.BLL.Models.csprojAssemblyReference.cache
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\obj\Debug\Users.BLL.Models.csproj.CoreCompileInputs.cache
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\obj\Debug\Users.BLL.Models.csproj.CopyComplete
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\obj\Debug\Users.BLL.Models.dll
+C:\Users\Kiryl\source\repos\Users.WebApi\Users.BLL.Models\obj\Debug\Users.BLL.Models.pdb
