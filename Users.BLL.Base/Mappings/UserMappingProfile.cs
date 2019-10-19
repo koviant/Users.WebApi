@@ -12,6 +12,7 @@ namespace Users.BLL.Mappings
         {
             CreateMap<UserDal, User>();
             CreateMap<UserRequest, UserDal>();
+            CreateMap<UserDal, UserResponse>();
         }
     }
 }

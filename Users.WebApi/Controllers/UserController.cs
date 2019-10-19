@@ -20,7 +20,7 @@ namespace Users.WebApi.Controllers
 
         public UserController(IUserService service)
         {
-            this._service = service ?? throw new ArgumentNullException(nameof(service));
+            _service = service ?? throw new ArgumentNullException(nameof(service));
         }
 
         [HttpGet]
@@ -28,9 +28,9 @@ namespace Users.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a list of users.")]
         public async Task<IHttpActionResult> GetUsers()
         {
-            var users = await this._service.GetAllUsersAsync();
+            var users = await _service.GetAllUsersAsync();
 
-            return this.Ok(users);
+            return Ok(users);
         }
 
         [HttpPost]
@@ -41,15 +41,15 @@ namespace Users.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> CreateUser([FromBody]UserRequest createRequest)
         {
-            if (!this.ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                return this.BadRequest(this.ModelState);
+                return BadRequest(ModelState);
             }
 
-            var user = await this._service.CreateUserAsync(createRequest);
+            var user = await _service.CreateUserAsync(createRequest);
             var userLocation = $"api/users/{user.Id}";
 
-            return this.Created(userLocation, user);
+            return Created(userLocation, user);
         }
 
         [HttpGet]
@@ -59,9 +59,9 @@ namespace Users.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> GetUserAddresses([FromUri]int userId)
         {
-            var addresses = await this._service.GetUserAddressesAsync(userId);
+            var addresses = await _service.GetUserAddressesAsync(userId);
 
-            return this.Ok(addresses);
+            return Ok(addresses);
         }
 
         [HttpGet]
@@ -71,9 +71,9 @@ namespace Users.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> GetUser([FromUri]int userId)
         {
-            var user = await this._service.GetUserById(userId);
+            var user = await _service.GetUserById(userId);
 
-            return this.Ok(user);
+            return Ok(user);
         }
 
         [HttpGet]
@@ -83,9 +83,9 @@ namespace Users.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> GetAddress([FromUri]int userId, [FromUri]int addressId)
         {
-            var address = await this._service.GetUsersAddressByIdAsync(userId, addressId);
+            var address = await _service.GetUsersAddressByIdAsync(userId, addressId);
 
-            return this.Ok(address);
+            return Ok(address);
         }
 
         [HttpPut]
@@ -97,15 +97,15 @@ namespace Users.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> UpdateUser([FromUri]int userId, [FromBody]UserRequest request)
         {
-            if (!this.ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                return this.BadRequest(this.ModelState);
+                return BadRequest(ModelState);
             }
 
-            await this._service.UpdateUserAsync(userId, request);
+            await _service.UpdateUserAsync(userId, request);
 
-            var response = this.Request.CreateResponse(HttpStatusCode.NoContent);
-            return this.ResponseMessage(response);
+            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            return ResponseMessage(response);
         }
 
         [HttpPatch]
@@ -119,13 +119,13 @@ namespace Users.WebApi.Controllers
         {
             if (string.IsNullOrEmpty(lastName))
             {
-                return this.BadRequest($"{nameof(lastName)} must not be null or empty.");
+                return BadRequest($"{nameof(lastName)} must not be null or empty.");
             }
 
-            await this._service.UpdateUserLastNameAsync(userId, lastName);
+            await _service.UpdateUserLastNameAsync(userId, lastName);
 
-            var response = this.Request.CreateResponse(HttpStatusCode.NoContent);
-            return this.ResponseMessage(response);
+            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            return ResponseMessage(response);
         }
 
         [HttpPatch]
@@ -140,13 +140,13 @@ namespace Users.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return BadRequest(ModelState);
             }
 
-            await this._service.UpdateUserAddressAsync(userId, addressId, addressRequest);
+            await _service.UpdateUserAddressAsync(userId, addressId, addressRequest);
 
-            var response = this.Request.CreateResponse(HttpStatusCode.NoContent);
-            return this.ResponseMessage(response);
+            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            return ResponseMessage(response);
         }
 
         [HttpPost]
@@ -161,13 +161,13 @@ namespace Users.WebApi.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return BadRequest(ModelState);
             }
 
-            var address = await this._service.AddNewAddressToUserAsync(userId, addressRequest);
+            var address = await _service.AddNewAddressToUserAsync(userId, addressRequest);
             var addressLocation = $"api/users/{userId}/addresses/{address.Id}";
 
-            return this.Created(addressLocation, address);
+            return Created(addressLocation, address);
         }
 
         [HttpDelete]
@@ -177,10 +177,10 @@ namespace Users.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> DeleteUser([FromUri]int userId)
         {
-            await this._service.DeleteUserByIdAsync(userId);
+            await _service.DeleteUserByIdAsync(userId);
 
-            var response = this.Request.CreateResponse(HttpStatusCode.NoContent);
-            return this.ResponseMessage(response);
+            var response = Request.CreateResponse(HttpStatusCode.NoContent);
+            return ResponseMessage(response);
         }
     }
 }

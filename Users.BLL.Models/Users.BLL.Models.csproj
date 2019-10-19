@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\UserResponse.cs" />
     <Compile Include="Validators\AddressRequestValidator.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AddressRequest.cs" />

@@ -19,12 +19,12 @@ namespace Users.BLL
 
         public UserService(IUserRepository repository)
         {
-            this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
         public async Task<List<User>> GetAllUsersAsync()
         {
-            var usersDb = await this._repository.GetAllUsers().ToArrayAsync();
+            var usersDb = await _repository.GetAllUsers().ToArrayAsync();
             var users = usersDb.Select(Mapper.Map<User>).ToList();
 
             return users;
@@ -32,7 +32,7 @@ namespace Users.BLL
 
         public async Task<User> GetUserById(int userId)
         {
-            var userDal = await this._repository.GetUserByIdAsync(userId);
+            var userDal = await _repository.GetUserByIdAsync(userId);
             var user = Mapper.Map<User>(userDal);
 
             return user;
@@ -46,7 +46,7 @@ namespace Users.BLL
             }
 
             var userDal = Mapper.Map<UserDal>(createRequest);
-            await this._repository.AddNewUserAsync(userDal);
+            await _repository.AddNewUserAsync(userDal);
 
             return Mapper.Map<User>(userDal);
         }
@@ -59,12 +59,12 @@ namespace Users.BLL
             }
 
             var userDal = Mapper.Map<UserDal>(updateRequest);
-            await this._repository.UpdateUserAsync(userId, userDal);
+            await _repository.UpdateUserAsync(userId, userDal);
         }
 
         public async Task<List<AddressResponse>> GetUserAddressesAsync(int userId)
         {
-            var userDal = await this._repository.GetUserByIdAsync(userId);
+            var userDal = await _repository.GetUserByIdAsync(userId);
             var user = Mapper.Map<User>(userDal);
 
             return user.Addresses.Select(Mapper.Map<AddressResponse>).ToList();
@@ -72,7 +72,7 @@ namespace Users.BLL
 
         public async Task DeleteUserByIdAsync(int userId)
         {
-            await this._repository.DeleteUserAsync(userId);
+            await _repository.DeleteUserAsync(userId);
         }
 
         public async Task UpdateUserLastNameAsync(int userId, string lastName)
@@ -82,9 +82,9 @@ namespace Users.BLL
                 throw new ArgumentException($"{nameof(lastName)} must not be null or empty.");
             }
 
-            var user = await this._repository.GetUserByIdAsync(userId);
+            var user = await _repository.GetUserByIdAsync(userId);
             user.LastName = lastName;
-            await this._repository.UpdateUserAsync(userId, user);
+            await _repository.UpdateUserAsync(userId, user);
         }
 
         public async Task<AddressResponse> AddNewAddressToUserAsync(int userId, AddressRequest addressRequest)
@@ -94,7 +94,7 @@ namespace Users.BLL
                 throw new ArgumentNullException(nameof(addressRequest));
             }
 
-            var user = await this._repository.GetUserByIdAsync(userId);
+            var user = await _repository.GetUserByIdAsync(userId);
             if (user.Addresses.Any(a => a.Description == addressRequest.Description))
             {
                 throw new ResourceHasConflictException();
@@ -102,14 +102,14 @@ namespace Users.BLL
 
             var address = Mapper.Map<AddressDal>(addressRequest);
             user.Addresses.Add(address);
-            await this._repository.UpdateUserAsync(userId, user);
+            await _repository.UpdateUserAsync(userId, user);
 
             return Mapper.Map<AddressResponse>(address);
         }
 
         public async Task<AddressResponse> GetUsersAddressByIdAsync(int userId, int addressId)
         {
-            var userDal = await this._repository.GetUserByIdAsync(userId);
+            var userDal = await _repository.GetUserByIdAsync(userId);
             var addressesDal = userDal.Addresses.Where(a => a.Id == addressId).ToArray();
             if (addressesDal.Length == 0)
             {
@@ -129,7 +129,7 @@ namespace Users.BLL
                 throw new ArgumentNullException(nameof(addressRequest));
             }
 
-            var userDal = await this._repository.GetUserByIdAsync(userId);
+            var userDal = await _repository.GetUserByIdAsync(userId);
             if (userDal.Addresses.All(a => a.Id != addressId))
             {
                 throw new ResourceNotFoundException();
@@ -144,7 +144,7 @@ namespace Users.BLL
             addressDal.Id = addressId;
             addressDal.User = userDal;
 
-            await this._repository.UpdateAddressAsync(addressId, addressDal);
+            await _repository.UpdateAddressAsync(addressId, addressDal);
         }
     }
 }
