@@ -22,23 +22,23 @@ namespace Users.BLL
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-        public async Task<List<User>> GetAllUsersAsync()
+        public async Task<List<UserResponse>> GetAllUsersAsync()
         {
             var usersDb = await _repository.GetAllUsers().ToArrayAsync();
-            var users = usersDb.Select(Mapper.Map<User>).ToList();
+            var users = usersDb.Select(Mapper.Map<UserResponse>).ToList();
 
             return users;
         }
 
-        public async Task<User> GetUserById(int userId)
+        public async Task<UserResponse> GetUserById(int userId)
         {
             var userDal = await _repository.GetUserByIdAsync(userId);
-            var user = Mapper.Map<User>(userDal);
+            var user = Mapper.Map<UserResponse>(userDal);
 
             return user;
         }
 
-        public async Task<User> CreateUserAsync(UserRequest createRequest)
+        public async Task<UserResponse> CreateUserAsync(UserRequest createRequest)
         {
             if (createRequest == null)
             {
@@ -48,7 +48,7 @@ namespace Users.BLL
             var userDal = Mapper.Map<UserDal>(createRequest);
             await _repository.AddNewUserAsync(userDal);
 
-            return Mapper.Map<User>(userDal);
+            return Mapper.Map<UserResponse>(userDal);
         }
 
         public async Task UpdateUserAsync(int userId, UserRequest updateRequest)

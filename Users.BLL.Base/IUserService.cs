@@ -7,11 +7,11 @@ namespace Users.BLL.Base
 {
     public interface IUserService
     {
-        Task<User> CreateUserAsync(UserRequest createRequest);
+        Task<UserResponse> CreateUserAsync(UserRequest createRequest);
 
-        Task<User> GetUserById(int userId);
+        Task<UserResponse> GetUserById(int userId);
 
-        Task<List<User>> GetAllUsersAsync();
+        Task<List<UserResponse>> GetAllUsersAsync();
 
         Task UpdateUserAsync(int userId, UserRequest updateRequest);
 
